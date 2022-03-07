@@ -1,19 +1,5 @@
 <template>
   <BuilderNavbar>
-    <template #banner>
-      <div
-        class="text-white text-xs text-center py-1 px-4 lg:px-8 bg-blue-500 capitalize"
-      >
-        <span class="mr-1">
-          {{ $t('banners.welcome', { app_name: app.name }) }}
-        </span>
-        <Anchor
-          class="underline font-bold"
-          :text="$t('others.learn_more')"
-          href="https://github.com/viandwi24/nuxt3-awesome-starter"
-        />
-      </div>
-    </template>
     <template #menu>
       <div class="relative hidden lg:flex items-center ml-auto">
         <nav
@@ -120,8 +106,6 @@
 </template>
 
 <script lang="ts" setup>
-import { IApp } from '~/utils/app'
-
 export interface IMenuItem {
   type: 'link' | 'button'
   text: string
@@ -130,7 +114,6 @@ export interface IMenuItem {
 }
 
 const { t } = useLang()
-const app = useState<IApp>('app')
 const menus = computed((): IMenuItem[] => [
   { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
   { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
